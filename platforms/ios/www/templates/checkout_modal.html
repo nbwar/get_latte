@@ -1,0 +1,60 @@
+<div class="modal">
+  <ion-header-bar class="bar-calm">
+    <div class="buttons">
+      <button class="button button-calm" ng-click="closeModal()">Cancel</button>
+    </div>
+    <h1 class="title">Checkout</h1>
+  </ion-header-bar>
+  <ion-content scroll="false" class="checkout_modal">
+    <p class="info_text">To: {{user.fullName()}}</p>
+
+    <div class="list list-inset form_container">
+
+      <label class="item item-input item-icon-left">
+        <i class="checkout_icon ion-ios7-location-outline"></i>
+        <input type="text" placeholder="Address" ng-model="order.address">
+      </label>
+
+      <label class="item item-input item-icon-left">
+        <i class="checkout_icon ion-ios7-telephone-outline"></i>
+        <input type="tel" placeholder="Phone" ng-model="order.phone">
+      </label>
+      <label class="item item-input item-icon-left">
+        <i class="checkout_icon ion-card"></i>
+        <input type="tel" placeholder="Credit Card" ng-model="order.creditCard">
+      </label>
+
+      <label class="item item-input">
+        <textarea placeholder="Special instructions"></textarea>
+      </label>
+    </div> <!-- end form_container -->
+
+    <div ng-repeat="item in cart.checkoutItems(menuItems)" class="cart_container">
+      <div class="row ">
+        <div class="col col-33">{{item.name}}</div>
+        <div class="col col-33">
+          ${{item.price}}
+          <span class="multiplier">x</span>
+          {{item.amount}}
+        </div>
+        <div class="col col-33">${{cart.priceForItem(item)}}</div>
+      </div>
+    </div> <!-- end cart_container -->
+
+    <div class="row">
+      <div class="col col-33 col-offset-33">Delivery</div>
+      <div class="col">Free</div>
+    </div>
+    <div class="row">
+      <div class="col col-33 col-offset-33">Total</div>
+      <div class="col">${{cart.totalCost(menuItems)}}</div>
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="confirmOrder(menuItems)">
+        Confirm
+      </button>
+    </div>
+
+  </ion-content> <!-- end content-->
+</div>

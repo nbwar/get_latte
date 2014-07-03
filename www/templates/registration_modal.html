@@ -1,0 +1,42 @@
+<div class="modal">
+  <ion-header-bar class="bar-calm">
+    <div class="buttons">
+      <button class="button button-calm" ng-click="closeRegistrationModal()">Close</button>
+    </div>
+    <h1 class="title">Sign Up</h1>
+  </ion-header-bar>
+  <ion-content scroll="false" class="has-header">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="First Name" ng-model="user.first_name">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Last Name" ng-model="user.last_name">
+      </label>
+
+      <label class="item item-input">
+        <input type="text" placeholder="Email" ng-model="user.email">
+      </label>
+
+      <label class="item item-input">
+        <input type="tel" placeholder="Phone" ng-model="user.phone">
+      </label>
+
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+
+      <label class="item item-input">
+        <input type="password" placeholder="Confirm password" ng-model="user.password_confirmation">
+      </label>
+    </div> <!-- end form -->
+
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="register(user)">
+        Sign Up!
+      </button>
+    </div>
+
+  </ion-content>
+</div>

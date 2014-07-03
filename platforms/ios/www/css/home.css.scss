@@ -1,0 +1,48 @@
+/***************************************/
+/* Home Page */
+/***************************************/
+
+.home {
+  background: url(../img/coffee_bg.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  h1 {
+    text-align: center;
+    margin-top: 49%;
+    color: #FFF;
+    font-size: 40px;
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: black;
+  }
+
+  .padding {
+    padding: 0 10px !important;
+  }
+
+  .button-positive {
+    background-color: $lightBlue;
+  }
+
+  .links_container {
+    text-align: center;
+    line-height: 25px;
+
+    a {
+      color: #FFF;
+    }
+  }
+}
+
+
+/***************************************/
+/* Login modal */
+/***************************************/
+.login {
+  .close_modal {
+    margin-top: 20px;
+  }
+}
+

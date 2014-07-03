@@ -1,0 +1,33 @@
+<ion-view title="Home" class="home">
+  <ion-content scroll="false">
+
+    <div class="home_container">
+      <h1> Get Latte</h1>
+
+      <div class="list list-inset login_form">
+        <label class="item item-input">
+          <input type="text" placeholder="Email" ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-calm" ng-click="login(user)">
+          Login
+        </button>
+      </div>
+
+      <div class="links_container">
+        <a href ng-click='openRegistrationModal()'>Sign Up</a>
+      </div> <!-- end links_container -->
+    </div>
+
+  </ion-content>
+</ion-view>
+
+<!--       <div class="padding">
+        <button class="button button-block button-calm" ng-click="connectWithFacebook()">
+          Connect With Facebook
+        </button>
+      </div> -->

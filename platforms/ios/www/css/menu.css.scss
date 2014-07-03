@@ -1,0 +1,127 @@
+/***************************************/
+/* Menu Page */
+/***************************************/
+.menu_view {
+  background-color: $backgroundGrey;
+  .list {
+    background-color: $backgroundGrey;
+  }
+}
+
+.menu_item {
+  position: relative;
+
+  // Overlay
+  .item_overlay {
+    position: absolute;
+    padding-top: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66,66,66, 0.6);
+    -webkit-transition:0.3s linear all;
+      transition:0.3s linear all;
+      opacity:1;
+
+    h1 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    h1, p {
+      color: #FFF !important;
+      -webkit-text-stroke-width: 0.1px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+
+  // overlay animation
+  .ng-hide {
+    opacity:0;
+  }
+
+  .ng-hide-add, .ng-hide-remove {
+    /* this needs to be here to make it visible during the animation
+       since the .ng-hide class is already on the element rendering
+       it as hidden. */
+    display:block!important;
+  }
+}
+
+
+// Add to cart container
+.action_container {
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+
+  .name {
+    position: absolute;
+    left: 5px;
+    top: 36%;
+    font-size: 16px;
+  }
+  i:not(.ion-information-circled) {
+    font-size: 34px !important;
+  }
+
+  .info_container {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 8px;
+
+    i.ion-information-circled {
+      font-size: 24px;
+      color: #B3B3B3;
+
+      &.active {
+        color: $lightBlue;
+      }
+    }
+  }
+
+  .ion-minus-circled {
+    color: #E92772;
+
+    &:active {
+      color: red;
+    }
+  }
+  .ion-plus-circled {
+    color: #84D32D;
+
+    &:active {
+      color: #C2CE89;
+    }
+  }
+
+  .order_count {
+    font-size: 38px;
+    margin: 0 10px;
+  }
+}
+
+// Footer
+.bar-footer {
+  display: none;
+
+  &.visible {
+    display: block;
+    background-color: $lightBlue;
+
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: #B3B3B3;
+      margin-bottom: 5px;
+    }
+
+  }
+}
+
+

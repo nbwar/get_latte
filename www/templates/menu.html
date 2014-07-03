@@ -1,0 +1,69 @@
+<ion-view title="Get Latte" hide-back-button="true" class="menu_view">
+
+  <ion-nav-buttons>
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header" ng-class="{'has-footer': cart.hasItems()}">
+
+    <div ng-repeat="menuItem in menuItems" href="#/app/menu/{{menuItem.id}}" class="menu_items_container">
+
+
+      <!-- CARD -->
+      <div class="list card">
+        <a ng-click="toggleOverlay($event, menuItem)">
+
+          <div class="item item-image item-text-wrap">
+
+            <div class="menu_item">
+              <img ng-src="img/{{menuItem.image}}">
+
+              <div class="item_overlay" ng-show="menuItem.overlayVisible" ng-click="toggleOverlay($event, menuItem)">
+                <h1>{{menuItem.name}}</h1>
+                <p>{{menuItem.description}}</p>
+              </div> <!-- end item_overlay -->
+
+            </div> <!-- end menu-item -->
+          </div> <!-- end item -->
+        </a>
+
+        <div class="action_container">
+          <span class="name">
+            {{menuItem.name}}
+          </span>
+          <div>
+            <i class="ion-minus-circled" ng-click="adjustOrderCount(menuItem, -1)"></i>
+            <span class="order_count">{{cart.countForItem(menuItem)}}</span>
+            <i class="ion-plus-circled" ng-click="adjustOrderCount(menuItem, 1)"></i>
+            <div class="info_container" ng-click="toggleOverlay($event, menuItem)">
+              <i class="ion-information-circled"  ng-class="{'active': menuItem.overlayVisible}"></i>
+            </div>
+          </div> <!-- end order_count -->
+        </div> <!-- end action_container -->
+      </div> <!-- end list -->
+
+    </div> <!-- end ng-repeat menuItem -->
+
+  </ion-content>
+
+  <!-- FOOTER -->
+<!--   <div class="bar bar-footer" ng-class="{'visible': cart.hasItems()}">
+    <p>A delicious latte is only 8 minutes away</p>
+    <label class="item item-input">
+      <input type="text" placeholder="Address" ng-model="user.address">
+    </label>
+    Total:{{cart.totalCost(menuItems)}}
+  </div> -->
+
+  <div class="bar bar-footer" ng-class="{'visible': cart.hasItems()}">
+    <div class="buttons">
+      <button class="button button-calm" ng-click="cart.clearCart()">Cancel</button>
+    </div>
+    <h1 class="title">Total: ${{cart.totalCost(menuItems)}}</h1>
+    <div class="buttons" ng-click="doSomething()">
+      <button class="button button-calm" ng-click="openModal()">Get Latte!</button>
+    </div>
+  </div>
+
+
+</ion-view>

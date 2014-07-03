@@ -1,0 +1,41 @@
+/***************************************/
+/* Checkout Modal */
+/***************************************/
+
+.checkout_modal {
+  background-color: $backgroundGrey;
+
+  .info_text {
+    margin-left: 12px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: $textGrey;
+  }
+
+  .form_container {
+    margin-top: 15px;
+
+    textarea {
+      height: 50px;
+    }
+  }
+
+  .checkout_icon {
+    font-size: 25px;
+    padding-right: 8px;
+
+    &.ion-card {
+      font-size: 20px;
+    }
+  }
+
+  .row {
+    padding: 0 0 0 10px;
+    .col {
+      color: $textGrey !important;
+    }
+    .multiplier {
+      padding: 0 5px;
+    }
+  }
+}
