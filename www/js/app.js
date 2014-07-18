@@ -6,32 +6,33 @@ angular.module('getLatte', ['ionic', 'getLatte.controllers', 'getLatte.services'
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+      // cordova.plugins.Keyboard.disableScroll(true)
     }
     if(window.StatusBar) {
       StatusBar.styleDefault()
     }
   })
 
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    if (toState.redirectLoggedinUser) {
-      var token = $window.localStorage.token
-      if (token) {
-        sessionService.loginWithToken(token)
-        .then(function() {
-          event.preventDefault()
-          $state.go('app.menu')
-          return
-        }, function(error) {
-          userService.resetUser()
-        })
-      }
-    }
+  // $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+  //   if (toState.redirectLoggedinUser) {
+  //     var token = $window.localStorage.token
+  //     if (token) {
+  //       sessionService.loginWithToken(token)
+  //       .then(function() {
+  //         event.preventDefault()
+  //         $state.go('app.menu')
+  //         return
+  //       }, function(error) {
+  //         userService.resetUser()
+  //       })
+  //     }
+  //   }
 
-  if (!userService.isLoggedIn && toState.access.isProtected) {
-      event.preventDefault()
-      $state.go('home')
-    }
-  })
+  // if (!userService.isLoggedIn && toState.access.isProtected) {
+  //     event.preventDefault()
+  //     $state.go('home')
+  //   }
+  // })
 
 
 

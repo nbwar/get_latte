@@ -38,14 +38,14 @@ angular.module('getLatte.controllers', [])
   // }
 
   $scope.login = function(user) {
-    // $state.go('app.menu')
-    sessionService.login(user)
-    .then(function() {
-      $scope.loginModal.hide()
-      $state.go('app.menu')
-    }, function(error) {
-      userService.resetUser()
-    })
+    $state.go('app.menu')
+    // sessionService.login(user)
+    // .then(function() {
+    //   $scope.loginModal.hide()
+    //   $state.go('app.menu')
+    // }, function(error) {
+    //   userService.resetUser()
+    // })
   }
 
   $scope.register = function(user) {
@@ -81,8 +81,9 @@ angular.module('getLatte.controllers', [])
 
 })
 
-.controller('MenuCtrl', function($scope, $rootScope, cartService, $ionicModal) {
-  $scope.cart = cartService.cart
+.controller('MenuCtrl', function($scope, $rootScope, $ionicModal, cartService, paymentService) {
+  $scope.cart = cartService
+  $scope.card = {}
 
   $rootScope.menuItems = [
     { id: 1, name: 'Latte', price: 5, image: 'latte.png', description: 'Hand crafts beans with a smooth creme flavor. Made by Martin Wallner'},
@@ -113,18 +114,24 @@ angular.module('getLatte.controllers', [])
 
   $scope.adjustOrderCount = function(item, amount){
     if (amount > 0)
-      cartService.cart.addItem(item)
+      cartService.addItem(item)
     else
-      cartService.cart.removeItem(item)
+      cartService.removeItem(item)
   }
 
+
   $scope.confirmOrder = function(menuItems) {
-    // send CartService.cart.checkoutItems  to server
+    // send CartService.checkoutItems  to server
 
     // on callback
       // show success and then :
-    cartService.cart.clearCart()
-    $scope.modal.hide()
+    console.log($scope.card)
+    cartService.clearCart()
+
+    paymentService.createToken(document.getElementById('stripe_form'))
+
+    // $scope.modal.hide()
+
 
     // or show error
   }

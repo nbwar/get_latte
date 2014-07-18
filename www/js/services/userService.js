@@ -10,6 +10,8 @@ angular.module('services.user', [])
     isLoggedIn: false,
     addresses: [],
     phone: '',
+    card: {},
+    stripeId,
 
     resetUser: function() {
       this.firstName = ''
@@ -18,6 +20,8 @@ angular.module('services.user', [])
       this.isLoggedIn = false
       this.address = []
       this.phone = ''
+      this.card = {}
+      this.stripeId = ''
     },
 
     setUser: function(user) {
@@ -27,6 +31,8 @@ angular.module('services.user', [])
       this.isLoggedIn = true
       this.addresses = user.addresses
       this.phone = user.phone
+      this.card = user.card
+      this.stripeId = user.stripe_id
     },
 
     fullName: function() {

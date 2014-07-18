@@ -81,8 +81,8 @@ angular.module('getLatte.controllers', [])
 
 })
 
-.controller('MenuCtrl', function($scope, $rootScope, cartService, $ionicModal) {
-  $scope.cart = cartService.cart
+.controller('MenuCtrl', function($scope, $rootScope, $ionicModal, cartService, paymentService) {
+  $scope.cart = cartService
 
   $rootScope.menuItems = [
     { id: 1, name: 'Latte', price: 5, image: 'latte.png', description: 'Hand crafts beans with a smooth creme flavor. Made by Martin Wallner'},
@@ -113,17 +113,17 @@ angular.module('getLatte.controllers', [])
 
   $scope.adjustOrderCount = function(item, amount){
     if (amount > 0)
-      cartService.cart.addItem(item)
+      cartService.addItem(item)
     else
-      cartService.cart.removeItem(item)
+      cartService.removeItem(item)
   }
 
   $scope.confirmOrder = function(menuItems) {
-    // send CartService.cart.checkoutItems  to server
+    // send CartService.checkoutItems  to server
 
     // on callback
       // show success and then :
-    cartService.cart.clearCart()
+    cartService.clearCart()
     $scope.modal.hide()
 
     // or show error

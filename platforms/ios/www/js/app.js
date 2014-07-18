@@ -6,6 +6,7 @@ angular.module('getLatte', ['ionic', 'getLatte.controllers', 'getLatte.services'
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+      // cordova.plugins.Keyboard.disableScroll(true)
     }
     if(window.StatusBar) {
       StatusBar.styleDefault()
@@ -20,7 +21,7 @@ angular.module('getLatte', ['ionic', 'getLatte.controllers', 'getLatte.services'
   //       .then(function() {
   //         event.preventDefault()
   //         $state.go('app.menu')
-  //         // return
+  //         return
   //       }, function(error) {
   //         userService.resetUser()
   //       })
@@ -33,8 +34,43 @@ angular.module('getLatte', ['ionic', 'getLatte.controllers', 'getLatte.services'
   //   }
   // })
 
-  $rootScope.user = userService
 
+
+  // $rootScope.user = {};
+
+  // $window.fbAsyncInit = function() {
+  //   FB.init({
+  //     appId: '****************',
+  //     channelUrl: 'app/channel.html',
+  //     status: true,
+  //     cookie: true,
+  //     xfbml: true
+  //   });
+
+  //   FB.Event.subscribe('auth.statusChange', function(response) {
+  //     $rootScope.$broadcast("fb_statusChange", {'status': response.status});
+  //   });
+  // };
+
+
+  // load the Facebook javascript SDK
+  // (function(d){
+  //   var js,
+  //   id = 'facebook-jssdk',
+  //   ref = d.getElementsByTagName('script')[0];
+
+  //   if (d.getElementById(id)) {
+  //     return;
+  //   }
+
+  //   js = d.createElement('script');
+  //   js.id = id;
+  //   js.async = true;
+  //   js.src = "//connect.facebook.net/en_US/all.js";
+
+  //   ref.parentNode.insertBefore(js, ref);
+
+  // }(document));
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {

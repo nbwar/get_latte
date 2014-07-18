@@ -5,25 +5,53 @@
     </div>
     <h1 class="title">Checkout</h1>
   </ion-header-bar>
-  <ion-content scroll="false" class="checkout_modal">
+  <ion-content class="checkout_modal">
     <p class="info_text">To: {{user.fullName()}}</p>
 
     <div class="list list-inset form_container">
 
+      <!-- Address -->
       <label class="item item-input item-icon-left">
         <i class="checkout_icon ion-ios7-location-outline"></i>
-        <input type="text" placeholder="Address" ng-model="order.address">
+        <input type="text" placeholder="Address" ng-model="user.address">
       </label>
 
+      <!-- Phone -->
       <label class="item item-input item-icon-left">
         <i class="checkout_icon ion-ios7-telephone-outline"></i>
-        <input type="tel" placeholder="Phone" ng-model="order.phone">
-      </label>
-      <label class="item item-input item-icon-left">
-        <i class="checkout_icon ion-card"></i>
-        <input type="tel" placeholder="Credit Card" ng-model="order.creditCard">
+        <input type="tel" placeholder="Phone" ng-model="user.phone">
       </label>
 
+      <!-- Stripe Form -->
+      <form action="" method="POST" id="stripe_form">
+        <!-- Credit Card -->
+        <label class="item item-input item-icon-left">
+          <i class="checkout_icon ion-card"></i>
+          <input type="tel" placeholder="Credit Card" ng-model="card.creditCard" data-stripe"number" maxlength="16">
+        </label>
+
+        <!-- CVC -->
+        <label class="item item-input item-icon-left">
+          <i class="checkout_icon ion-card"></i>
+          <input type="tel" placeholder="cvc" ng-model="card.cvc" data-stripe"cvc" maxlength='3'>
+        </label>
+
+        <!-- Exp Month -->
+        <label class="item item-input item-icon-left">
+          <i class="checkout_icon ion-card"></i>
+          <input type="tel" placeholder="month" ng-model="card.expMonth" data-stripe"exp-month" maxlength='2'>
+        </label>
+
+        <!-- Exp Year -->
+        <label class="item item-input item-icon-left">
+          <i class="checkout_icon ion-card"></i>
+          <input type="tel" placeholder="year" ng-model="card.expYear" data-stripe"exp-year" maxlength='4'>
+        </label>
+      </form>
+
+
+
+      <!-- Special Instructions -->
       <label class="item item-input">
         <textarea placeholder="Special instructions"></textarea>
       </label>
